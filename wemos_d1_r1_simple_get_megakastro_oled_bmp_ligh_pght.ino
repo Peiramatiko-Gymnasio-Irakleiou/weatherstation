@@ -47,10 +47,9 @@ const int SDC_PIN = GPIO2
 
 // DHT dht(DHTPIN,DHTTYPE);
 
-    const char* ssid = "Teachers Office";     //replace with your own wifi ssid const
-    char* password = "9E4E2328FE";     //replace with your own
-    //wifi ssid password const 
-   // char* host = "192.168.2.7";
+    const char* ssid = "**************";     
+    char* password = "***********";     
+  
    char* host = "www.megakastro.gr";
    int Temperature_Cel = 0; //temperature
    int Temperature_Fehr ;
@@ -147,16 +146,12 @@ readLight();
     //this url contains the informtation we want to send to the server
     //if esp8266 only requests the website, the url is empty
     String url = "/dataCollector.php?"+data;
-    /* url += "?param1=";
-    url += param1;
-    url += "?param2=";
-    url += param2;
-    */
+  
     //Upload Temperature Humidity every 60 seconds
   if(millis() - uploadTime > 60000){
     display.init();
   display.clear();
- // display.drawString(0, 0, "Temperature_Cel");
+
   display.print(Temperature_Cel);
    String temp1 = "Temperature_Cel="+String(Temperature_Cel)+"oC" ;
   String temp2=" Humidity="+String(Humidity)+"%";
@@ -281,8 +276,5 @@ void readAtmosphere(){
   Serial.println(" Pascal");
 }
 
-//upload temperature humidity data to megakastro
-void uploadTemperatureHumidity(){
-   
-  }
+
 
